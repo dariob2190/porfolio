@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseñador Web - Minimalista</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="cabecera">
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="inicio">
+        <div class="contenedor-imagen">
+            <div id="mensaje-inicio">
+                <h1>Diseño gráfico profesional</h1>
+                <p>Descubre las posibilidades ocultas de tu negocio con nuestro diseño de páginas web</p>
+                <button>Contactanos</button>
+            </div>
+            <img src="portada.jpg.webp" alt="Imagen de inicio" class="imagen-inicio">
+        </div>
+    </section>
+
+    <div id="contacto" class="contacto">
+        <h2>Contacto</h2>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4" 
+required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <footer class="pie">
+        <p>© 2024 Diseñador Web. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
+
