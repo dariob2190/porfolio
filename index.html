@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diseñador Web - Minimalista</title>
+    <title>Darío Bermúdez - Diseñador Web</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="cabecera">
+        <h1 class="titulo">Diseñador Web</h1>
         <nav>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
@@ -18,16 +21,67 @@
 
     <section id="inicio" class="inicio">
         <div class="contenedor-imagen">
-            <div id="mensaje-inicio">
-                <h1>Diseño gráfico profesional</h1>
-                <p>Descubre las posibilidades ocultas de tu negocio con nuestro diseño de páginas web</p>
-                <button>Contactanos</button>
+            <img src="Portada.jpg.webp" alt="Imagen de inicio" class="imagen-inicio">
+            <div class="texto-sobre-imagen">
+                <h1>Luis Darío Bermúdez - Diseñador Web</h1>
+                <p>Potencia tus ventas con una página única</p>
             </div>
-            <img src="portada.jpg.webp" alt="Imagen de inicio" class="imagen-inicio">
         </div>
     </section>
 
-    <div id="contacto" class="contacto">
+    <!-- Proyectos -->
+    <section id="proyectos" class="proyectos">
+        <h2>Mis Proyectos</h2>
+        <div class="carrusel">
+            <div class="slide active">
+                <img src="proyecto1.jpg" alt="Proyecto 1">
+                <p>Proyecto 1: Tienda Online</p>
+            </div>
+            <div class="slide">
+                <img src="proyecto2.jpg" alt="Proyecto 2">
+                <p>Proyecto 2: Portafolio Personal</p>
+            </div>
+            <div class="slide">
+                <img src="proyecto3.jpg" alt="Proyecto 3">
+                <p>Proyecto 3: Blog de Viajes</p>
+            </div>
+            <button class="flecha izquierda">&#10094;</button>
+            <button class="flecha derecha">&#10095;</button>
+        </div>
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="servicios">
+        <h2>Servicios</h2>
+        <div class="tarjetas-servicios">
+            <div class="tarjeta-servicio">
+                <h3 class="servicio-titulo">Diseño Web Personalizado</h3>
+                <p>Diseño único para tu negocio.</p>
+                <div class="servicio-precio">Desde $500</div>
+                <button class="servicio-boton">Solicitar</button>
+            </div>
+            <div class="tarjeta-servicio">
+                <h3 class="servicio-titulo">Desarrollo E-commerce</h3>
+                <p>Tiendas online eficientes y seguras.</p>
+                <div class="servicio-precio">Desde $800</div>
+                <button class="servicio-boton">Solicitar</button>
+            </div>
+            <div class="tarjeta-servicio">
+                <h3 class="servicio-titulo">Consultoría SEO</h3>
+                <p>Optimización para motores de búsqueda.</p>
+                <div class="servicio-precio">Desde $300</div>
+                <button class="servicio-boton">Solicitar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contacto">
         <h2>Contacto</h2>
         <form>
             <label for="nombre">Nombre:</label>
@@ -37,16 +91,17 @@
             <input type="email" id="email" name="email" required>
 
             <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" rows="4" 
-required></textarea>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
 
             <button type="submit">Enviar</button>
         </form>
-    </div>
+    </section>
 
+    <!-- Pie de Página -->
     <footer class="pie">
-        <p>© 2024 Diseñador Web. Todos los derechos reservados.</p>
+        <p>© 2024 Luis Darío Bermúdez. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
-

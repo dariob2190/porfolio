@@ -1,18 +1,20 @@
-/* Estilo general */
+/* Estilos básicos y reinicios */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-    scroll-behavior: smooth;
 }
 
 body {
+    font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     color: #333;
     line-height: 1.6;
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Evitar desbordamiento horizontal */
 }
 
+/* Cabecera */
 .cabecera {
     background-color: #fff;
     text-align: center;
@@ -21,7 +23,6 @@ body {
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0;
     z-index: 1000;
 }
 
@@ -29,7 +30,6 @@ body {
     font-size: 2rem;
     margin-bottom: 10px;
     color: #333;
-    transition: transform 0.3s ease-in-out;
 }
 
 nav ul {
@@ -50,42 +50,158 @@ nav a:hover {
     color: #007BFF;
 }
 
+/* Sección de inicio */
 .inicio {
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
-    padding-top: 80px; /* Para evitar el solapamiento con la cabecera fija 
-*/
+    height: 100vh;
+    background-color: #f4f4f9;
+    padding-top: 80px;
 }
 
-.mensaje-inicio {
+.contenedor-imagen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.imagen-inicio {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.texto-sobre-imagen {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: white; /* Color del texto */
+    color: white;
     font-size: 2rem;
-    z-index: 1; /* Aseguramos que el texto esté sobre la imagen */
-    background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro semi-transparente */
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
+    z-index: 1;
+}
+
+/* Proyectos: Carrusel */
+.proyectos {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.carrusel {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    text-align: center;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
     border-radius: 10px;
 }
 
-.contenedor-imagen {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-}
-
-.imagen-inicio {
-    width: 100%;
+.slide.active {
     display: block;
 }
 
+.carrusel .flecha {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transform: translateY(-50%);
+}
+
+.flecha.izquierda {
+    left: 10px;
+}
+
+.flecha.derecha {
+    right: 10px;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #007BFF;
+}
+
+/* Servicios */
+.servicios {
+    padding: 60px 20px;
+    text-align: center;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.tarjeta-servicio {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px; /* Altura fija para uniformidad */
+    border-radius: 10px;
+    text-align: center;
+}
+
+.servicio-titulo {
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.servicio-precio {
+    font-size: 1.5rem;
+    color: #007BFF;
+    margin-top: auto;
+}
+
+.servicio-boton {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+.servicio-boton:hover {
+    background-color: #0056b3;
+}
+
+/* Contacto */
 .contacto {
     padding: 60px 20px;
     text-align: center;
@@ -95,51 +211,46 @@ nav a:hover {
     font-size: 2rem;
     margin-bottom: 20px;
     color: #007BFF;
-    animation: fadeIn 1.2s ease-in-out;
 }
 
-form {
+.contacto form {
     max-width: 500px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-label, input, textarea {
-    display: block;
-    width: 100%;
-    margin-bottom: 15px;
-    font-size: 1rem;
+.contacto label {
+    font-weight: bold;
 }
 
-input, textarea {
+.contacto input, .contacto textarea {
     padding: 10px;
-    border: 2px solid #ccc;
     border-radius: 5px;
-    transition: border-color 0.3s;
+    border: 1px solid #ccc;
+    width: 100%;
 }
 
-input:focus, textarea:focus {
-    border-color: #007BFF;
-    outline: none;
-}
-
-button {
-    padding: 10px 20px;
+.contacto button {
+    padding: 10px;
     background-color: #007BFF;
-    border: none;
     color: white;
-    font-size: 1rem;
+    border: none;
     cursor: pointer;
+    font-size: 1rem;
     transition: background-color 0.3s;
 }
 
-button:hover {
+.contacto button:hover {
     background-color: #0056b3;
 }
 
+/* Pie de página */
 .pie {
-    text-align: center;
-    padding: 20px;
     background-color: #333;
     color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
 }
-
