@@ -7,16 +7,44 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: var(--fondo-principal);
+    color: var(--texto-principal);
     line-height: 1.6;
     scroll-behavior: smooth;
-    overflow-x: hidden; /* Evitar desbordamiento horizontal */
+    overflow-x: hidden;
+}
+
+/* Variables de color */
+:root {
+    --fondo-principal: #f4f4f9;
+    --texto-principal: #333;
+    --cabecera-fondo: #fff;
+    --cabecera-texto: #333;
+    --boton-fondo: #007BFF;
+    --boton-hover: #0056b3;
+    --pie-fondo: #333;
+    --pie-texto: #fff;
+    --texto: #000;
+}
+
+/* Modo oscuro */
+body.modo-oscuro {
+    --fondo-principal: #121212;
+    --texto-principal: #ffffff;
+    --cabecera-fondo: #1f1f1f;
+    --cabecera-texto: #ffffff;
+    --boton-fondo: #2196f3;
+    --boton-hover: #1769aa;
+    --pie-fondo: #1f1f1f;
+    --pie-texto: #ffffff;
+    --servicios-fondo: #1f1f1f;
+    --servicio-fondo: #000;
+    --texto: #fff;
 }
 
 /* Cabecera */
 .cabecera {
-    background-color: #fff;
+    background-color: var(--cabecera-fondo);
     text-align: center;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -29,7 +57,7 @@ body {
 .cabecera .titulo {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: #333;
+    color: var(--cabecera-texto);
 }
 
 nav ul {
@@ -41,13 +69,32 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: #333;
+    color: var(--cabecera-texto);
     font-weight: bold;
     transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #007BFF;
+    color: var(--boton-fondo);
+}
+
+/* Botón de modo oscuro */
+.modo-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: var(--boton-fondo);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.modo-toggle:hover {
+    background-color: var(--boton-hover);
 }
 
 /* Sección de inicio */
@@ -56,7 +103,6 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f9;
     padding-top: 80px;
 }
 
@@ -68,7 +114,7 @@ nav a:hover {
 
 .imagen-inicio {
     width: 100%;
-    height: auto;
+    height: 95%;
     display: block;
 }
 
@@ -128,10 +174,12 @@ nav a:hover {
 
 .flecha.izquierda {
     left: 10px;
+    border-radius: 5px;
 }
 
 .flecha.derecha {
     right: 10px;
+    border-radius: 5px;
 }
 
 .dots {
@@ -150,67 +198,86 @@ nav a:hover {
 }
 
 .dot.active {
-    background-color: #007BFF;
+    background-color: var(--boton-fondo);
 }
 
 /* Servicios */
 .servicios {
     padding: 60px 20px;
     text-align: center;
-    display: grid;
+    background-color: var(--servicios-fondo);
+}
+
+.servicios h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--boton-fondo);
+}
+
+.tarjetas-servicios {
+    display: flex;
+    justify-content: center;
     gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    flex-wrap: wrap;
+    padding: 10px;
 }
 
 .tarjeta-servicio {
+    flex: 1 1 calc(25% - 20px);
+    max-width: calc(25% - 20px);
+    background-color: var(--servicio-fondo);
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 300px; /* Altura fija para uniformidad */
-    border-radius: 10px;
+    align-items: center;
+    min-height: 250px;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-servicio:hover {
+    transform: translateY(-5px);
+}
+
+.tarjeta-servicio h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.tarjeta-servicio p {
+    flex: 1;
+    font-size: 1rem;
     text-align: center;
 }
 
-.servicio-titulo {
-    font-size: 1.25rem;
-    color: #333;
-}
-
 .servicio-precio {
-    font-size: 1.5rem;
-    color: #007BFF;
-    margin-top: auto;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--boton-fondo);
 }
 
 .servicio-boton {
-    padding: 10px;
-    background-color: #007BFF;
+    padding: 10px 20px;
+    background-color: var(--boton-fondo);
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1rem;
     transition: background-color 0.3s;
-    margin-top: 15px;
 }
 
 .servicio-boton:hover {
-    background-color: #0056b3;
+    background-color: var(--boton-hover);
 }
 
 /* Contacto */
 .contacto {
     padding: 60px 20px;
     text-align: center;
-}
-
-.contacto h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #007BFF;
 }
 
 .contacto form {
@@ -221,35 +288,31 @@ nav a:hover {
     gap: 15px;
 }
 
-.contacto label {
-    font-weight: bold;
-}
-
 .contacto input, .contacto textarea {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     width: 100%;
+    background-color: var(--servicios-fondo);
+    color: var(--texto);
 }
 
 .contacto button {
     padding: 10px;
-    background-color: #007BFF;
+    background-color: var(--boton-fondo);
     color: white;
     border: none;
-    cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.3s;
 }
 
 .contacto button:hover {
-    background-color: #0056b3;
+    background-color: var(--boton-hover);
 }
 
 /* Pie de página */
 .pie {
-    background-color: #333;
-    color: white;
+    background-color: var(--pie-fondo);
+    color: var(--pie-texto);
     text-align: center;
     padding: 20px;
     font-size: 0.9rem;

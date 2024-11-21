@@ -1,27 +1,45 @@
-let index = 0;
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot");
+// Carrusel de proyectos
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
 
-function showSlides(n) {
-    slides.forEach((slide, i) => slide.classList.remove("active"));
-    dots.forEach(dot => dot.classList.remove("active"));
-    slides[n].classList.add("active");
-    dots[n].classList.add("active");
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+        dots[i].classList.toggle('active', i === index);
+    });
+    currentSlide = index;
 }
 
-function changeSlide(n) {
-    index = (index + n + slides.length) % slides.length;
-    showSlides(index);
+function nextSlide() {
+    const nextIndex = (currentSlide + 1) % slides.length;
+    showSlide(nextIndex);
 }
 
-function setSlide(n) {
-    index = n;
-    showSlides(n);
+function prevSlide() {
+    const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(prevIndex);
 }
 
-document.querySelector(".flecha.izquierda").onclick = () => changeSlide(-1);
-document.querySelector(".flecha.derecha").onclick = () => changeSlide(1);
-dots.forEach((dot, i) => dot.onclick = () => setSlide(i));
+// Event listeners for manual navigation
+document.querySelector('.flecha.derecha').addEventListener('click', nextSlide);
+document.querySelector('.flecha.izquierda').addEventListener('click', prevSlide);
 
-setInterval(() => changeSlide(1), 5000);
-showSlides(index);
+// Event listeners for dots
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => showSlide(index));
+});
+
+// Auto-slide every 5 seconds
+setInterval(nextSlide, 5000);
+
+// Alternar entre modo claro y oscuro
+const modoToggle = document.getElementById('modo-toggle');
+modoToggle.addEventListener('click', () => {
+    document.body.classList.toggle('modo-oscuro');
+    if (document.body.classList.contains('modo-oscuro')) {
+        modoToggle.textContent = 'Modo Claro';
+    } else {
+        modoToggle.textContent = 'Modo Oscuro';
+    }
+});
